@@ -1,0 +1,12 @@
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kafka_message_producer
+    ports:
+      - 3307:3306
+    volumes:
+      - ./db/mysql-data:/var/lib/mysql
