@@ -1,11 +1,9 @@
 package ch.noahwie.kafkamessageappbackend.controller;
 
 import ch.noahwie.kafkamessageappbackend.dto.MessageDto;
+import ch.noahwie.kafkamessageappbackend.service.MessageService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,19 +12,20 @@ import java.util.List;
  * Provides endpoints to create and read messages
  */
 @RestController
+@RequestMapping("/messages")
 public class MessageController {
-    /*private final MessageService messageService;
+    private final MessageService messageService;
 
     public MessageController(MessageService messageService) {
         this.messageService = messageService;
-    }*/
+    }
 
     /**
      * GET /messages
      * Returns all messages for user to see
      * @return list of messages as DTOs
      */
-    @GetMapping("/messages")
+    @GetMapping
     public List<MessageDto> getMessages() {
         return messageService.getAllMessages();
     }
@@ -37,8 +36,8 @@ public class MessageController {
      * @param messageDto
      * @return created Message
      */
-    @PostMapping("/messages")
+    @PostMapping
     public MessageDto saveMessage(@RequestBody @Valid MessageDto messageDto) {
-        return messageService.createNote(messageDto);
+        return messageService.createMessage(messageDto);
     }
 }
