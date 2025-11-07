@@ -8,7 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class RestMessage {
-    private String messageId;
+    private int messageId;
     private String message;
 }
 
