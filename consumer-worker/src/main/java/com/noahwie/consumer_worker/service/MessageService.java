@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageService {
-    @Autowired
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
-    @Autowired
-    private Mapper mapper;
+    private final Mapper mapper;
+
+    public MessageService(MessageRepository messageRepository, Mapper mapper) {
+        this.messageRepository = messageRepository;
+        this.mapper = mapper;
+    }
 
     public void saveMessage(KafkaMessage KafkaMessage) {
         Message message = mapper.mapToMessage(KafkaMessage);

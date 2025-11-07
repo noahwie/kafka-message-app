@@ -10,8 +10,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MessageConsumer {
-    @Autowired
-    private MessageService messageService;
+    private final MessageService messageService;
+
+    public MessageConsumer(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     @KafkaListener(topics = "messages.v1", groupId = "message", containerFactory = "kafkaListenerFactory")
     public void listen(@Payload KafkaMessage kafkaMessage) {
