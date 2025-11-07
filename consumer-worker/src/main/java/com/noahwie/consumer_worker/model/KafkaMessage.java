@@ -8,6 +8,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class KafkaMessage {
-    private int id;
+    private String id;
     private String message;
 }
