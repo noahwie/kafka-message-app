@@ -12,7 +12,7 @@ import java.util.Map;
 @Configuration
 public class KafkaConfig {
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, KafkaMessage> kafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, KafkaMessage> kafkaListenerFactory() {
         Map<String, Object> config = new HashMap<>();
 
         config.put("bootstrap.servers", "localhost:9092");
