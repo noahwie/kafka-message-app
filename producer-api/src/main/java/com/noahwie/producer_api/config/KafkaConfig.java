@@ -1,7 +1,6 @@
 package com.noahwie.producer_api.config;
 
 import com.noahwie.producer_api.model.KafkaMessage;
-import com.noahwie.producer_api.model.RestMessage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -9,7 +8,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @Configuration
 public class KafkaConfig {
