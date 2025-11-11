@@ -18,8 +18,8 @@ public class MessageService {
         this.mapper = mapper;
     }
 
-    public void saveMessage(KafkaMessage KafkaMessage) {
-        Message message = mapper.mapToMessage(KafkaMessage);
+    public void saveMessage(KafkaMessage kafkaMessage) {
+        Message message = mapper.mapToMessage(kafkaMessage);
         messageRepository.save(message);
     }
 
